@@ -1,0 +1,29 @@
+$mainColor: purple;
+//variable
+h1{
+    color: $mainColor;
+}
+h2{
+    color: $mainColor;
+}
+h3{
+    color: $mainColor;
+}
+h4{
+    color: $mainColor;
+}
+h5{
+    color: $mainColor;
+}
+
+// Function
+
+@mixin headingStle($color){
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 5px;
+    color: $color;
+
+}
+h1{
+    @include headingStle(yellow)
+}
