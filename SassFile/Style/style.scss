@@ -1,29 +1,90 @@
-$mainColor: purple;
-//variable
-h1{
-    color: $mainColor;
-}
-h2{
-    color: $mainColor;
-}
-h3{
-    color: $mainColor;
-}
-h4{
-    color: $mainColor;
-}
-h5{
-    color: $mainColor;
-}
+@import './variable.scss';
 
-// Function
 
-@mixin headingStle($color){
+// Mixin with argument
+@mixin headingStle($color) {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 5px;
-    color: $color;
-
+    color: $color; // Use color argument
 }
-h1{
-    @include headingStle(yellow)
+//extend
+
+.button {
+    padding: 5px;
+    border: none;
+    color: blue;
+}
+
+.superbutton {
+    @extend .button;
+    background-color: rgb(233, 203, 233);
+}
+
+//for
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        @include headingStle($mainColor); // Pass $mainColor to mixin
+    }
+}
+
+@for $i from 1 through 100 {
+    .p#{$i}{
+        padding: #{$i}px;
+
+    }
+}
+//each
+
+$menu-item : home about contat service newitem;
+
+@each $item in $menu-item{
+    .#{$item}{
+        color: red;
+        padding: 10px;
+
+    }
+}
+//while
+$i :6;
+$startSize : 10px;
+@while $i>0{
+    h#{$i}{
+        color: green;
+        font-size: $startSize;
+    }
+    $i : $i - 1;
+    $startSize : $startSize + 10px;
+}
+
+//nesting
+
+nav{
+  background-color: aquamarine; 
+   ul{
+    margin: 20px;
+     list-style: none;
+     background-color: wheat;
+     li{
+        &:hover{
+            background: green;
+        }
+        padding: 10px;
+        display: inline-block;
+     }
+   }
+}
+
+//if else
+$float: 'left';
+
+@if $float== 'right'{
+    h1{
+        float:left;
+    } 
+}
+@else {
+    h1{
+        float:right;
+    }
 }
