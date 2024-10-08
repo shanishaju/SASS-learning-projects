@@ -88,3 +88,30 @@ $float: 'left';
         float:right;
     }
 }
+.circle {
+    background-color: blue;
+    border: 20px solid black;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin: 50px;
+    padding: 50px;
+    float: left;
+    shape-outside: circle(50%);
+  
+    &:hover {
+      background-color: blueviolet;
+    }
+  }
+  p{
+   
+        font-family: 'Butler';
+        font-weight: 200;
+        font-style: normal;
+    
+  }
+
+
+
+//   
+
